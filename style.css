@@ -1,0 +1,116 @@
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+
+main {
+    background-color: lightgray;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainLeftSide {
+    display: block;
+}
+
+.mainRightSide {
+    display: inline-block;
+}
+
+nav {
+    background-color: #111;
+    color: white;
+    padding: 20px 50px;
+}
+
+.navbarTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.searchInput {
+    border: none;
+    background-color: transparent;
+}
+
+.searchInput::placeholder {
+    color: lightgray;
+}
+
+.navbarBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-side {
+    display: flex;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+}
+
+.menu-item {
+    text-align: center;
+    margin-right: 50px;
+    cursor: pointer;
+    color: lightgray;
+    font-weight: 400;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    color: lightgray;
+    font-weight: 400;
+    min-width: 200%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: lightgray;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.menu-item:hover {
+    background-color: #A9A9A9;
+}
+
+.dropdown-content a:hover {
+    background-color: #A9A9A9;
+}
+
+a {
+    color: lightgray;
+    text-decoration: none;
+}
