@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O nas | Sklep</title>
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
     <!-- styles css -->
     <link rel="stylesheet" href="style.css" />
-    <title>Strona Główna | Sklep</title>
 </head>
 
 <body>
     <!-- navbar -->
-    <nav class="navbar">
+    <nav class="navbar page">
         <div class="nav-center">
             <!-- links -->
             <div>
@@ -24,7 +24,7 @@
                 <ul class="nav-links">
                     <li>
                         <a href="index.html" class="nav-link">
-                Strona Główna
+                Strona główna
               </a>
                     </li>
                     <li>
@@ -34,13 +34,13 @@
                     </li>
                     <li>
                         <a href="about.html" class="nav-link">
-                Kontakt
+                O nas
               </a>
                     </li>
                 </ul>
             </div>
             <!-- logo -->
-            <h1 class="nav-logo">Sklep</h1>
+            <h1 class="nav-logo" style="color: black">Sklep</h1>
             <!-- cart icon -->
             <div class="toggle-container">
                 <button class="toggle-cart">
@@ -51,15 +51,9 @@
         </div>
     </nav>
     <!-- hero -->
-    <section class="hero">
-        <div class="hero-container">
-            <h1 class="text-slanted">
-                Procesory, karty graficzne, dyski
-            </h1>
-            <h3>mamy wszystko by zbudować wydajne komputery!</h3>
-            <a href="products.html" class="hero-btn">
-          Wybierz teraz!
-        </a>
+    <section class="page-hero">
+        <div class="section-center">
+            <h3 class="page-hero-title">Strona główna / O Nas</h3>
         </div>
     </section>
     <!-- sidebar -->
@@ -109,41 +103,18 @@
             </footer>
         </aside>
     </div>
-    <!-- featured products -->
-    <section class="section featured">
+    <!-- about -->
+    <section class="section section-center about-page">
         <div class="title">
-            <h2><span>/</span> Polecane</h2>
+            <h2><span>/</span> O nas</h2>
         </div>
-        <div class="featured-center section-center">
-            <h2 class="section-loading">
-                Ładowanie...
-            </h2>
-            <!-- single product -->
-            <!-- <article class="product">
-          <div class="product-container">
-            <img src="./images/main-bcg.jpeg" class="product-img img" alt="" />
-           
-            <div class="product-icons">
-              <a href="product.html?id=1" class="product-icon">
-                <i class="fas fa-search"></i>
-              </a>
-              <button class="product-cart-btn product-icon" data-id="1">
-                <i class="fas fa-shopping-cart"></i>
-              </button>
-            </div>
-          </div>
-          <footer>
-            <p class="product-name">name</p>
-            <h4 class="product-price">9,99 zł</h4>
-          </footer>
-        </article> -->
-            <!-- end of single product -->
-        </div>
-        <a href="products.html" class="btn">
-        Wszystkie produkty
-      </a>
+        <p class="about-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat accusantium sapiente tempora sed dolore esse deserunt eaque excepturi, delectus error accusamus vel eligendi, omnis beatae. Quisquam, dicta. Eos quod quisquam esse recusandae vitae neque
+            dolore, obcaecati incidunt sequi blanditiis est exercitationem molestiae delectus saepe odio eligendi modi porro eaque in libero minus unde sapiente consectetur architecto. Ullam rerum, nemo iste ex, eaque perspiciatis nisi, eum totam velit
+            saepe sed quos similique amet. Ex, voluptate accusamus nesciunt totam vitae esse iste.
+        </p>
     </section>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./src/pages/about.js"></script>
 </body>
 
 </html>
