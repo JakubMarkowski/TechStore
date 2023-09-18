@@ -1,2 +1,1 @@
-web: node server.js
-web: ng serve
+web: npm start
