@@ -10,7 +10,7 @@
     "frontend": "cd frontend && ng serve",
     "backend": "cd backend && nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
-    "heroku-postbuild": "cd ./frontend && npm install && ng build --aot --prod"
+    "heroku-postbuild": "frontend && npm install && ng build --aot --prod"
   },
   "keywords": [],
   "author": "",
