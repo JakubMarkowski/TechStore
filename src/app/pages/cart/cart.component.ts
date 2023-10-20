@@ -51,11 +51,6 @@ export class CartComponent {
   }
   onCheckout(): void {
     console.log(this.cart.items);
-    this.httpClient.post(`http://localhost:3000/checkout`, { items: this.cart.items }).subscribe(async (res: any) => {
-      let stripe = await loadStripe("pk_test_51NTPikKf4X5RdzeYjjyJrIYnizOflCGc3hsEVSvsMXOLqHDqGChZoqivdtwbijvE2H74nTTAoG9QEItGWkO2XnCN00VcKiRGI4");
-      stripe?.redirectToCheckout({
-        sessionId: res.id
-      })
-    });
+    this.storeService.checkout(this.cart.items);
   }
 }

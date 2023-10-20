@@ -9,21 +9,27 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const port = 3000;
-const LINK = `http://localhost:${port}`;
+const LINK = `http://51.20.6.163`;
 // const db = new sqlite3.Database("/db/products.db");
+// let corsOptions = {
+//     origin: "http://localhost:4200",
+//     optionsSuccessStatus: 200
+// }
 
-
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-let corsOptions = {
-    origin: 'http://localhost:4200',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}
-app.use(cors(corsOptions))
+app.use(cors());
+//app.use(function (req, res, next) {
+//  res.setHeader(
+  //  'Content-Security-Policy',
+    //"default-src 'self'; style-src 'self''unsafe-inline'; script-src 'self''unsafe-inline'  "
+   //);
+  //next();
+//});
 const stripe = require("stripe")("sk_test_51NTPikKf4X5RdzeYpnYjzyH46j2Kxsg6Y9VP6X5V6I3AqpA7v9an2KOGLwHVIWTKAIMlypK5cOVpo3BjEJqODBXA00UbaO3hgD");
 app.get("/", (req, res, next) => {
     console.log("Connection established");
 });
+
+
 app.post('/checkout', async (req, res, next) => {
     try {
         const session = await stripe.checkout.sessions.create({
@@ -39,7 +45,7 @@ app.post('/checkout', async (req, res, next) => {
                     amount: 0,
                     currency: 'PLN',
                 },
-                display_name: 'Free shipping',
+                display_name: 'Darmowa dostawa',
                 // Delivers between 5-7 business days
                 delivery_estimate: {
                     minimum: {
@@ -60,7 +66,7 @@ app.post('/checkout', async (req, res, next) => {
                     amount: 1500,
                     currency: 'PLN',
                 },
-                display_name: 'Next day air',
+                display_name: 'Dostawa na następny dzień',
                 // Delivers in exactly 1 business day
                 delivery_estimate: {
                     minimum: {
@@ -75,7 +81,7 @@ app.post('/checkout', async (req, res, next) => {
                 }
             },
             ],
-            line_items: req.body.items.map((item) => ({
+            line_items: req.body.map((item) => ({
                 price_data: {
                   currency: 'PLN',
                   product_data: {
@@ -87,8 +93,8 @@ app.post('/checkout', async (req, res, next) => {
                 quantity: item.quantity,
             })),
             mode: 'payment',
-            success_url: `${LINK}/success.html`,
-            cancel_url: `${LINK}/cancel.html`,
+            success_url: `${LINK}/success`,
+            cancel_url: `${LINK}/cancel`,
         });
         res.status(200).json(session);
     } catch (error) { 
@@ -155,12 +161,7 @@ app.get("/api/category/:type", (req, res) => {
     });
 });
 app.use(bodyParser.json());
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
-  })
+app.listen(port, "0.0.0.0");
 app.use(function(req, res){
     res.status(404);
 });

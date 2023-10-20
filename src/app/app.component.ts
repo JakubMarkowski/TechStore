@@ -4,11 +4,7 @@ import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <app-header [cart] = "cart"></app-header>
-  <router-outlet></router-outlet>
-  `,
-  styles: []
+  templateUrl: "./app.component.html",
 })
 export class AppComponent implements OnInit {
   cart: Cart = { items: [] };

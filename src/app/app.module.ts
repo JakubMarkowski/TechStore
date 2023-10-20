@@ -24,6 +24,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CartService } from './services/cart.service';
 import { StoreService } from './services/store.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SuccessComponent } from './pages/success/success.component';
+import { CancelComponent } from './pages/cancel/cancel.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     FiltersComponent,
     ProductBoxComponent,
     CartComponent,
+    SuccessComponent,
+    CancelComponent,
   ],
   imports: [
     BrowserModule,
