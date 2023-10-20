@@ -25,5 +25,10 @@ export class HeaderComponent {
   }
   onClearCart() {
     this._cartService.clearCart();
-   }
+  }
+  numberOfItems(): number { 
+    if (this.itemsQuantity === 1) return 1;
+    else if (this.itemsQuantity > 1 && this.itemsQuantity <= 4) return 2;
+    else return 3;
+  }
 }
