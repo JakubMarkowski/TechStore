@@ -9,21 +9,10 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const port = 3000;
-const LINK = `http://51.20.6.163`;
-// const db = new sqlite3.Database("/db/products.db");
-// let corsOptions = {
-//     origin: "http://localhost:4200",
-//     optionsSuccessStatus: 200
-// }
+const LINK = `http://51.20.6.163`; //AWS EC2 adress
+//const LINK = `http://localhost:4200` localhost testing address
 
 app.use(cors());
-//app.use(function (req, res, next) {
-//  res.setHeader(
-  //  'Content-Security-Policy',
-    //"default-src 'self'; style-src 'self''unsafe-inline'; script-src 'self''unsafe-inline'  "
-   //);
-  //next();
-//});
 const stripe = require("stripe")("sk_test_51NTPikKf4X5RdzeYpnYjzyH46j2Kxsg6Y9VP6X5V6I3AqpA7v9an2KOGLwHVIWTKAIMlypK5cOVpo3BjEJqODBXA00UbaO3hgD");
 app.get("/", (req, res, next) => {
     console.log("Connection established");
@@ -124,18 +113,6 @@ app.get("/data", (req, res) => {
         }
     });
 });
-// app.get("/data/:cat", (req, res) => {
-//     let sql = `SELECT * FROM products WHERE category = ? ORDER BY price ${req.query.sort} LIMIT ${req.query.limit}`
-//     let param = [req.params.cat];
-//     db.get(sql, param, (errors, rows) => {
-//         if (errors) {
-//             console.error(errors);
-//             res.status(500).send("Internal Server Error");
-//         } else {
-//             res.json(rows);
-//         }
-//     });
-// });
 app.get("/api/categories", (req, res) => { 
     db.all("SELECT type FROM categories", (errors, rows) => {
         if (errors) {

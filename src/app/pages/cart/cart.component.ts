@@ -13,15 +13,7 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class CartComponent {
   cart: Cart = {
-    items: [
-      // {
-      //   product: 'https://via.placeholder.com/150',
-      //   name: "Intel i5 2137gg",
-      //   price: 2137,
-      //   quantity: 1,
-      //   id: 2137,
-      // }
-    ]
+    items: []
   };
   dataSource: Array<CartItem> = [];
   displayColumns: Array<string> = ['product', 'name', 'price', 'quantity', 'total', 'action'];
@@ -50,7 +42,6 @@ export class CartComponent {
     this.cartService.removeQuantity(item);
   }
   onCheckout(): void {
-    console.log(this.cart.items);
     this.storeService.checkout(this.cart.items);
   }
 }

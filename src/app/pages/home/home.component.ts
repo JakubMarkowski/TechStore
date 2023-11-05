@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.rowHeight = ROWS_HEIGHT[this.cols];
   }
   onShowCategory(newCat: string): void {
-    console.log(newCat + "+");
     this.category = newCat;
     this.getProducts();
   }
