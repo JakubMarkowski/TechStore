@@ -9,7 +9,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const port = 3000;
-const LINK = `http://51.20.6.163`; //AWS EC2 adress
+const LINK = `ec2-13-51-204-0.eu-north-1.compute.amazonaws.com`; //AWS EC2 adress
 //const LINK = `http://localhost:4200` localhost testing address
 
 app.use(cors());
