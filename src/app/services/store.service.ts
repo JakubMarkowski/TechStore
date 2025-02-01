@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Product } from '../models/product.model';
-import { Order } from '../models/order.model';
+//import { Order } from '../models/order.model';
 import { loadStripe } from '@stripe/stripe-js';
 import { CartItem } from '../models/cart.model';
-//const STORE_BASE_URL = "http://51.20.6.163:3000"; //AWS backend address
-const STORE_BASE_URL = "http://localhost:3000"; //localhost testing
+//const STORE_BASE_URL = "http://ec2-16-171-2-61.eu-north-1.compute.amazonaws.com:3000"; //AWS backend address
+const STORE_BASE_URL = "http://13.61.227.47"; //aws backend elastic IP
 @Injectable({
   providedIn: 'root'
 })
